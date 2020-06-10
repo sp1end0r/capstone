@@ -1,0 +1,30 @@
+예상 필요 장비 및 도서
+- 아두이노 보드
+    - 아두이노 우노 : 개발 보드로 적합 (1학기 필요 물품)
+    - 아두이노 나노 : 회로구성이 용이함 
+    - 아두이노 프로미니 : 완성품 제작에 적합
+
+- 블루투스 4.0 모듈(HM-10)
+    - 아두이노 기반이며, iBeacon 지원
+    - 가격 8950원이며, 1개 필요
+    - 구매링크
+    http://vctec.co.kr/product/%EC%A0%95%ED%92%88-hm-10- %EB%B8%94%EB%A3%A8%ED%88%AC%EC%8A%A4-40-ble- %EB%AA%A8%EB%93%88-hm-10-bluetooth-40-ble-module-masterslave/ 4911/
+
+    - Data sheet & AT command
+     https://people.ece.cornell.edu/land/courses/ece4760/PIC32/uart/HM10/ DSD%20TECH%20HM-10%20datasheet.pdf
+
+- 도서
+    - 저전력 블루투스 : 저전력 무선 네트워킹을 위한 툴과 테크닉, BLE
+    - 저자 : 케빈 타운젠드, 칼스 쿠피, 아키바, 로버트 데이비슨
+    - 가격 : 22000원
+
+BLE와 Beacon 관련 조사 자료
+- IEEE Bluetooth 4.0 Standard : https://ieeexplore.ieee.org/document/6411303
+- Android Beacon Library : https://altbeacon.github.io/android-beacon-library/index.html
+- Python Beacon scanning Library : https://github.com/citruz/beacontools
+
+
+지원해야하는 기능
+1. 스마트폰을 인식하여 신호를 전송하는 기능(비콘 고유의 기능)
+2. 신호를 수신한 스마트폰은 해당 신호에 맞는 정보를 사용자에게 제공
+    - 비콘 별로 신호를 식별할 수 있는 방법에 대해 고려해야됨
