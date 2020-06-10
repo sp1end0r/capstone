@@ -1,0 +1,6 @@
+AT : checking HM-10 module
+AT+TYPE3 : Bluetooth mode on
+AT+IBEA[num] : IBeacon mode(num=0 : off, num=1 : on)
+AT+DELO2 : IBeacon Broadcast mode
+AT+PWRM0 : HM-10 module sleep mode
+
