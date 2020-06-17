@@ -1,0 +1,89 @@
+<resources>
+    <string name="settings">Settings</string>
+    <string name="enable">Enable</string>
+    <string name="enable_permission_from_settings">Please enable location permission from settings to use the bluetooth</string>
+    <string name="bluetooth_disabled">Bluetooth disabled</string>
+    <string name="turning_bluetooth_off">Turning bluetooth off …</string>
+    <string name="bluetooth_enabled">Bluetooth enabled</string>
+    <string name="turning_bluetooth_on">Turning bluetooth on</string>
+    <string name="bluetooth_state">Bluetooth state</string>
+    <string name="scanning_for_beacons">Scanning </string>
+    <string name="altbeacon">ALTbeacon</string>
+    <string name="ibeacon">iBeacon</string>
+    <string name="metters_abbreviation">m</string>
+
+    <string name="eddystone_uid">Eddystone-UID</string>
+    <string name="eddystone_url">Eddystone-URL</string>
+    <string name="clear">Clear</string>
+    <string name="no_scanned_beacons_yet">No scanned beacons yet!</string>
+    <string name="empty_state_content">Looks like there is nothing here just yet!</string>
+    <string name="enable_bluetooth_to_start_scanning">Enable bluetooth to start scanning</string>
+    <string name="bluetooth_control">Bluetooth control</string>
+    <string name="feature_bluetooth_content">Make sure the bluetooth is enabled before you start scanning</string>
+    <string name="feature_scan_title">See what\'s around</string>
+    <string name="feature_scan_content">Tap to start and stop scanning for nearby beacons!</string>
+    <string name="feature_clear_title">Need a fresh start?</string>
+    <string name="feature_clear_content">Hit this to clear your previous scans</string>
+    <string name="scanner">Scanner</string>
+    <string name="feedback">Feedback</string>
+    <string name="rate_the_app">Rate the app</string>
+    <string name="activate_tutorial">Activate the tutorial</string>
+    <string name="need_some_hints">Need some hints on how to use the app?</string>
+    <string name="tutorial">Tutorial</string>
+    <string name="enjoying_the_app_let_us_know">Enjoying the app? Let people know!</string>
+    <string name="the_tutorial_has_been_reset">The tutorial has been reset</string>
+    <string name="delete_all">Delete all</string>
+    <string name="are_you_sure_delete_all">Are you sure you want to delete all the previous scans?</string>
+
+    <string name="delay_in_between_each_scan">Delay in between each scan</string>
+    <string name="logging">Logging</string>
+    <string name="enable_logging">Enable logging</string>
+    <string name="logging_endpoint">Logging endpoint</string>
+    <string name="device_name">Device name</string>
+    <string name="logging_frequency">Logging frequency</string>
+    <string name="not_defined">Not defined</string>
+    <string name="logging_description">If you choose to enable the logging a POST http request will be made to the specified endpoint at the logging frequency. The data will be send as a JSON object in the body of the request. If provided, a device name will be included in the http headers so you know which device is sending the logs. Be aware this will drain the battery a lot. </string>
+    <string name="logging_error_please_check">The logging request did not work. Please check the endpoint and your connectivity.</string>
+    <string name="prevent_sleep_while_scanning">Prevent device sleep while scanning</string>
+
+    <string name="battery_title">Battery</string>
+    <string name="x_mv">%d mV</string>
+
+    <string name="uptime_title">Uptime</string>
+    <string name="x_seconds">%s seconds</string>
+
+    <string name="pdu_title">Packets sent</string>
+
+    <string name="temperature_title">Temperature</string>
+    <string name="x_degrees">%1$s °C</string>
+
+    <string name="RSSI_title">RSSI</string>
+    <string name="x_dbm">%d dBm</string>
+    <string name="TX_title">TX</string>
+    <string name="major">Major</string>
+    <string name="minor">Minor</string>
+
+    <string name="namespace_id_title">NamespaceID</string>
+    <string name="instance_id_title">InstanceIDs</string>
+    <string name="uuid">UUID</string>
+
+    <string name="url_title">URL</string>
+    <string name="ruuvitag">RuuviTag</string>
+
+    <string name="air_pressure_title">Air pressure</string>
+    <string name="x_hpa">%d hPa</string>
+
+    <string name="humidity_title">Humidity</string>
+
+    <string name="remove_from_the_list">Remove from the list</string>
+    <string name="copy_infos_to_clipboard">Copy infos to clipboard</string>
+    <string name="add_to_the_blocked_list">Add to the blocked list</string>
+    <string name="the_informations_has_been_copied">The informations have been copied to the clipboard!</string>
+    <string name="blacklist">Blacklist</string>
+    <string name="see_the_blocked_beacons">See the blocked beacons</string>
+    <string name="no_blocked_beacons">No beacon has been blocked yet!</string>
+    <string name="unblock">Unblock</string>
+    <string name="open_source">Open source</string>
+    <string name="open_source_descr">This app is open source! Want to see how it works under the hood or customize it to fits your needs?</string>
+    <string name="prevent_sleep_descr">While scanning, the device won\'t be put in sleep mode</string>
+</resources>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/root_view"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context="com.bridou_n.beaconscanner.features.beaconList.BeaconListActivity">
+	
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		
+		<androidx.appcompat.widget.Toolbar
+			android:id="@+id/toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="?actionBarSize"
+			android:background="@color/colorBackground"
+			android:stateListAnimator="@animator/toolbar_elevation"
+			app:titleTextAppearance="?attr/textAppearanceHeadline5">
+			
+			<ProgressBar
+				android:id="@+id/progress_1"
+				style="?android:attr/progressBarStyleSmallInverse"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="@dimen/keyline_16"
+				android:visibility="gone" />
+		</androidx.appcompat.widget.Toolbar>
+		
+		<!-- Header with bluetooth state -->
+		<TextView
+			android:id="@+id/bluetooth_state"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/keyline_32"
+			android:layout_below="@id/toolbar"
+			android:elevation="@dimen/keyline_4"
+			android:gravity="center_vertical"
+			android:paddingStart="@dimen/keyline_16"
+			android:paddingEnd="@dimen/keyline_16"
+			android:textColor="@color/bluetoothStateTextcolor"
+			android:textSize="16sp"
+			tools:background="@color/bluetoothDisabled"
+			tools:text="Bluetooth disabled"
+			tools:visibility="gone" />
+		
+		<!-- Progressbar -->
+		<ProgressBar
+			android:id="@+id/progress_2"
+			style="?android:attr/progressBarStyleHorizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/bluetooth_state"
+			android:layout_marginTop="-6dp"
+			android:layout_marginBottom="-6dp"
+			android:indeterminate="true"
+			android:visibility="gone"
+			tools:visibility="visible" />
+		
+		<!-- Actual content -->
+		<androidx.recyclerview.widget.RecyclerView
+			android:id="@+id/beacons_rv"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_below="@+id/progress_2"
+			android:clipToPadding="false"
+			android:overScrollMode="never"
+			android:paddingTop="8dp"
+			android:paddingBottom="72dp"
+			android:scrollbars="vertical"
+			app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+	</RelativeLayout>
+	
+	<com.google.android.material.floatingactionbutton.FloatingActionButton
+		android:id="@+id/scan_fab"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom|end"
+		android:layout_margin="@dimen/keyline_16"
+		android:tint="@android:color/white"
+		app:fabSize="normal"
+		app:srcCompat="@drawable/play_icon" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
