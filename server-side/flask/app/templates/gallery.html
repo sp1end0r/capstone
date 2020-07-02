@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,300'>
+
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,600'>
+<link rel="stylesheet" href="../static/css/upload-style.css">
+<link rel="stylesheet" href="../static/css/image-style.css">
+
+<main role="main">
+  {% if not current_user.is_anonymous %}
+  <button class="popup-trigger upload-btn" id="popup-trigger"><span>Upload Now<i class="fa fa-plus-square-o"></i></span></button>
+
+  <div class="overlay" id="overlay">
+    <div class="overlay-background" id="overlay-background"></div>
+    <div class="overlay-content" id="overlay-content">
+      <div class="fa fa-times fa-lg overlay-close" id="overlay-close"></div>
+      <h1 class="main-heading">Upload Now</h1>
+      <h3 class="blurb">Upload your image</h3><span class="blurb-tagline">Let's share all images of CBNU_CERT</span>
+      <form action="{{ url_for('upload') }}" class="upload-form" method="post" enctype="multipart/form-data">
+        <label class="upload-label" for="post_title">Title</label>
+        <input class="upload-input" id="post_title" type="text" name="post_title" autocomplete="off"/>
+        <label class="upload-label" for="post_image">Upload Image</label>
+        <div class="file-box">
+          <input type="text", name="post_image_name", id="post_image_name" class="upload-input upload-name" value="Choose Your File" disabled="disabled">
+
+          <input class="upload-input upload-hidden" id="post_image" type="file" name="post_image" autocomplete="off"/>
+          <label for="post_image">Browse</label>
+        </div>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <span id="upload_error" class="text-danger">[{{ message }}]</span>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <button class="upload-btn btn-outline submit-btn" type="submit"><span>upload</span></button>
+      </form>
+    </div>
+  </div>
+
+  {% else %}
+  {% endif %}
+
+
+  <div class="gallery">
+    {% for post in posts %}
+    <figure>
+      <img src="../static/upload_folder/{{ post.post_image }}"/>
+      <figcaption>
+        <h3>{{ post.post_title }}</h3>
+        <p><small>{{ post.author.user_name }}</small></p>
+        <p><small>{{ post.post_written_date }}</small></p>
+      </figcaption>
+      <a href="http://localhost:5000/view/{{post.id}}"></a>
+    </figure>
+    {% endfor %}
+  </div>
+
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none;">
+  <symbol id="close" viewBox="0 0 18 18">
+    <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M9,0.493C4.302,0.493,0.493,4.302,0.493,9S4.302,17.507,9,17.507
+			S17.507,13.698,17.507,9S13.698,0.493,9,0.493z M12.491,11.491c0.292,0.296,0.292,0.773,0,1.068c-0.293,0.295-0.767,0.295-1.059,0
+			l-2.435-2.457L6.564,12.56c-0.292,0.295-0.766,0.295-1.058,0c-0.292-0.295-0.292-0.772,0-1.068L7.94,9.035L5.435,6.507
+			c-0.292-0.295-0.292-0.773,0-1.068c0.293-0.295,0.766-0.295,1.059,0l2.504,2.528l2.505-2.528c0.292-0.295,0.767-0.295,1.059,0
+			s0.292,0.773,0,1.068l-2.505,2.528L12.491,11.491z"/>
+  </symbol>
+  </svg>
+</main>
+
+
+<!-- partial -->
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script  src="../static/js/upload-script.js"></script>
+
+<!--<script  src="../static/js/image-script.js"></script>-->
+
+{% endblock %}

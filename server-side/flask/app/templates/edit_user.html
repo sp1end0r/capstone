@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+        .modal-center {
+            display: table;
+            height: 100%;
+            width: 100%;
+        }
+
+        .modal-align-center {: table-cell;
+            vertical-align: middle;
+        }
+
+        .modal-content {
+            height: inherit;
+            margin: 0 auto;
+        }
+    </style>
+    <div class="container">
+        <br/>
+        <br/>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <header class="card-header">
+                        User Info Modify
+                    </header>
+                    <article class="card-body">
+                        <form method="POST" id="edit_form">
+                            {{ form.hidden_tag() }}
+                            <input type="hidden" name="user_password">
+                            <div class="form-group">
+                                <label>ID</label>
+                                <input type="text" readonly="readonly" name="user_id" class="form-control"
+                                       placeholder="" maxlength="12" value="{{ form.user_id.data }}">
+
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-row">
+                                <div class="col form-group">
+                                    <label>Your Name </label>
+                                    <input type="text" name="user_name" class="form-control"
+                                           placeholder="" value="{{ form.user_name.data }}">
+
+                                    {% for error in form.user_name.errors %}
+                                        <span id="user_name_help" class="text-danger">[{{ error }}]</span>
+                                    {% endfor %}
+
+                                </div> <!-- form-group end.// -->
+                            </div> <!-- form-row end.// -->
+
+                            <div class="form-group">
+                                <label>About Me </label>
+                                <input type="text" name="user_about_me" class="form-control"
+                                       placeholder="" value="{{ form.user_about_me.data }}">
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+                                <label>Email address</label>
+                                <input type="email" name="user_email" class="form-control"
+                                       placeholder=""
+                                       maxlength="35" value="{{ form.user_email.data }}">
+                                <small class="form-text text-muted">We'll never share your email with anyone else.
+                                </small>
+
+                                {% for error in form.user_email.errors %}
+                                    <span id="user_email_help" class="text-danger">[{{ error }}]</span>
+                                {% endfor %}
+
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    {{ form.user_department.label }}
+                                    {{ form.user_department(class_="form-control") }}
+
+                                    {% for error in form.user_department.errors %}
+                                        <span id="user_department_help" class="text-danger">[{{ error }}]</span>
+                                    {% endfor %}
+
+                                </div> <!-- form-group end.// -->
+                                <div class="form-group col-md-6">
+                                    {{ form.user_grade.label }}
+                                    {{ form.user_grade(class_="form-control") }}
+
+                                    {% for error in form.user_grade.errors %}
+                                        <span id="user_id_help" class="text-danger">[{{ error }}]</span>
+                                    {% endfor %}
+
+                                </div> <!-- form-group end.// -->
+                            </div> <!-- form-row.// -->
+                            <div class="form-group">
+                                <button id="btn_save" class="btn btn-primary btn-block" type="button"
+                                        data-toggle="modal" data-target="#myModal">Save
+                                </button>
+                                <a id="btn_change_password" class="btn btn-info btn-block" href="{{ url_for('change_password') }}">Change
+                                    password
+                                </a>
+                            </div> <!-- form-group// -->
+                        </form>
+                    </article> <!-- card-body end .// -->
+                </div> <!-- card.// -->
+            </div> <!-- col.//-->
+        </div> <!-- row.//-->
+    </div>
+    <!--container end.//-->
+    <br/>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Page level script -->
+    <script>
+        $(function () {
+            $('#submit_btn').click(function () {
+                var password = $('input[name=user_password_modal]').val()
+                $('input[name=user_password]').val(password)
+                $('#edit_form').submit();
+            });
+        })
+    </script>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-center">
+            <div class="modal-dialog .modal-align-center">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Password check</h4>
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                                class="sr-only">Close</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col form-group">
+                            <input type="password" name="user_password_modal" class="form-control"
+                                   placeholder="">
+                        </div> <!-- form-group end.// -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="submit_btn">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

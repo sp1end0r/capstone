@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/blog-login.css') }}"/>
+    <script src="{{ url_for('static', filename='js/blog-login.js') }}"></script>
+
+    <div class="my-login-page">
+        <section class="h-100">
+            <div class="container h-100">
+                <div class="row justify-content-md-center h-100">
+                    <div class="card-wrapper">
+                        <div class="brand">
+                            <img src="{{ url_for('static', filename='img/logo.jpg') }}"/>
+                        </div>
+                        <div class="card fat">
+                            <div class="card-body">
+                                <h4 class="card-title">Login</h4>
+                                <form method="POST" action="" novalidate>
+                                    {{ form.hidden_tag() }}
+
+                                    <div class="form-group">
+                                        <label for="user_id">User ID</label>
+
+                                        <input id="user_id" type="text" class="form-control" name="user_id" value=""
+                                               required autofocus>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="user_password">Password
+                                            <a href="#" class="float-right">
+                                                Forgot Password?
+                                            </a>
+                                        </label>
+                                        <input id="user_password" type="password" class="form-control" name="user_password"
+                                               required data-eye>
+
+                                        {% with messages = get_flashed_messages() %}
+                                            {% if messages %}
+                                                {% for message in messages %}
+                                                    <span id="sign_in_error" class="text-danger">[{{ message }}]</span>
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endwith %}
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>
+                                            <input type="checkbox" name="user_remember_me" id="user_remember_me"> Remember Me
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group no-margin">
+                                        <button type="submit" class="btn btn-primary btn-block">
+                                            Login
+                                        </button>
+                                    </div>
+                                    <div class="margin-top20 text-center">
+                                        Don't have an account? <a href="{{ url_for('sign_up') }}">Create One</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <br/>
+{% endblock %}

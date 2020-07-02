@@ -1,0 +1,213 @@
+
+*:focus {
+  outline: none;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+.upload-form {
+  display: block;
+}
+
+.upload-label,
+.upload-input {
+  display: block;
+}
+
+.animate, .upload-btn, .upload-btn span, .overlay .overlay-content, .overlay .overlay-content .overlay-close, .overlay .overlay-content .upload-form {
+  transition: all 0.3s;
+}
+
+.main-heading {
+  line-height: 100%;
+  font-weight: 600;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.upload-btn {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  border: 0;
+  text-align: center;
+  cursor: pointer;
+  margin: auto;
+}
+.upload-btn span {
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.upload-btn span .fa {
+  margin-left: 8px;
+  font-size: 18px;
+  vertical-align: middle;
+}
+.upload-btn:not(.btn-outline) {
+  background-color: #000;
+}
+.upload-btn:not(.btn-outline) span {
+  color: #666;
+}
+.upload-btn:not(.btn-outline):hover {
+  background-color: #f7f7f7;
+}
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+.upload-btn.btn-outline span {
+  color: #fff;
+}
+.upload-btn.btn-outline:hover {
+  background-color: #fff;
+}
+.upload-btn.btn-outline:hover span {
+  color: #666;
+}
+
+.popup-trigger {
+  width: 270px;
+  margin: auto;
+  margin-top: 5px;
+  position: inherit;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.05);
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  float: left;
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  opacity: 0;
+  -webkit-transform: translateY(200px);
+          transform: translateY(200px);
+  transition: opacity 0.5s, z-index 0s 0.5s, -webkit-transform 0.5s;
+  transition: opacity 0.5s, transform 0.5s, z-index 0s 0.5s;
+  transition: opacity 0.5s, transform 0.5s, z-index 0s 0.5s, -webkit-transform 0.5s;
+}
+.overlay .overlay-background {
+  background-color: rgba(44, 62, 80, 0.8);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+.overlay .overlay-content {
+  width: 100%;
+  max-width: 530px;
+  margin: 100px auto 0;
+  padding: 0 15px;
+  color: #fff;
+  position: relative;
+  z-index: 10;
+}
+.overlay .overlay-content .overlay-close {
+  display: block;
+  font-size: 35px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 15px;
+}
+.overlay .overlay-content .overlay-close:hover {
+  opacity: .8;
+}
+.overlay .overlay-content .blurb {
+  margin-top: 35px;
+  line-height: 100%;
+  font-weight: 600;
+  font-size: 18px;
+}
+.overlay .overlay-content .blurb-tagline {
+  display: block;
+  margin-top: 10px;
+  line-height: 100%;
+  font-size: 14px;
+}
+.overlay .overlay-content .upload-form {
+  margin-top: 35px;
+}
+.overlay .overlay-content .upload-form label {
+  line-height: 100%;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.overlay .overlay-content .upload-form input {
+  background-color: transparent;
+  width: 83%;
+  height: 30px;
+  margin-bottom: 20px;
+  padding: 0 8px;
+  border: 1px solid rgba(254, 254, 254, 0.3);
+  border-radius: 5px;
+}
+.overlay .overlay-content .upload-form input:hover, .overlay .overlay-content .upload-form input:focus {
+  border-color: #fff;
+}
+.overlay .overlay-content .upload-form .submit-btn {
+  width: 150px;
+}
+.overlay.open {
+  z-index: 15;
+  opacity: 1;
+  display: block;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  transition: opacity 0.5s, z-index 0s, -webkit-transform 0.5s;
+  transition: opacity 0.5s, transform 0.5s, z-index 0s;
+  transition: opacity 0.5s, transform 0.5s, z-index 0s, -webkit-transform 0.5s;
+}
+.overlay.short .overlay-content {
+  margin: 30px auto;
+}
+
+.file-box {
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+}
+
+.file-box label {
+  padding: 0 8px;
+  margin-left: 5px;
+  color: #999;
+  height: 30px;
+  vertical-align: middle;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  border: 1px solid #ebebeb;
+  border-radius: .25em;
+}
+
+.file-box input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  .overlay .overlay-content {
+    margin: 25px auto;
+  }
+}

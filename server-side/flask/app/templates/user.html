@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title mb-4">
+                            <div class="d-flex justify-content-start">
+                                <div class="image-container">
+                                    <img src="{{ user.avatar(150) }}" id="imgProfile"
+                                         style="width: 150px; height: 150px" class="img-thumbnail"/>
+                                    <div class="middle">
+                                    </div>
+                                </div>
+                                <div class="userData ml-3">
+                                    <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a
+                                            href="javascript:void(0);">{{ user.user_id }}</a></h2>
+                                    <h6 class="d-block"><a href="javascript:void(0)">300</a> Blog Posts</h6>
+
+                                    {% if user.user_last_sign_in %}
+                                        <p>Last seen on: </p> {{ user.user_last_sign_in }}
+                                    {% endif %}
+
+                                    {% if user.user_about_me %}
+                                        <p>{{ user.user_about_me }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="ml-auto">
+                                <input type="button" class="btn btn-primary d-none" id="btnDiscard"
+                                       value="Discard Changes"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="basicInfo-tab" data-toggle="tab"
+                                       href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">User
+                                        Info</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="connectedServices-tab" data-toggle="tab"
+                                       href="#connectedServices" role="tab" aria-controls="connectedServices"
+                                       aria-selected="false">Posts</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content ml-1" id="myTabContent">
+                                <div class="tab-pane fade show active" id="basicInfo" role="tabpanel"
+                                     aria-labelledby="basicInfo-tab">
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">ID</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            {{ user.user_id }}
+                                        </div>
+                                    </div>
+                                    <hr/>
+
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Name</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            {{ user.user_name }}
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">E-mail</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            {{ user.user_email }}
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Department</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            {% if user.user_department == "COM" %}
+                                                컴퓨터공학과
+                                            {% elif user.user_department == "SWE" %}
+                                                소프트웨어학과
+                                            {% elif user.user_department == "MIS" %}
+                                                경영정보학과
+                                            {% elif user.user_department == "BUS" %}
+                                                경영학과
+                                            {% else %}
+                                                기타
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Grade</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            {% if user.user_grade > 4 %}
+                                                Graduated
+                                            {% else %}
+                                                {{ user.user_grade }} 학년
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Membership</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            {% if user.user_membership == "N" %}
+                                                Normal Member
+                                            {% else %}
+                                                Admin Member
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <a class="btn btn-secondary" id="btnChangePicture"
+                                               href="{{ url_for('edit_user') }}">Modify profile</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="connectedServices" role="tabpanel"
+                                     aria-labelledby="ConnectedServices-tab">
+                                    Facebook, Google, Twitter Account that are connected to this account
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
